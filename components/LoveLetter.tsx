@@ -1,9 +1,33 @@
 'use client';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+interface Heart {
+  id: number;
+  left: number;
+  top: number;
+  delay: number;
+  duration: number;
+}
 
 export default function LoveLetter() {
   const [isOpen, setIsOpen] = useState(false);
+  const [hearts, setHearts] = useState<Heart[]>([]);
+
+  // Generar corazones solo en el cliente
+  useEffect(() => {
+    const newHearts: Heart[] = [];
+    for (let i = 0; i < 15; i++) {
+      newHearts.push({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 3,
+        duration: 4 + Math.random() * 3
+      });
+    }
+    setHearts(newHearts);
+  }, []);
 
   return (
     <section className="min-h-screen py-20 px-4 relative overflow-hidden bg-black flex items-center justify-center">
@@ -15,13 +39,13 @@ export default function LoveLetter() {
 
       {/* Partículas flotantes de corazones pequeños */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
+        {hearts.map((heart) => (
           <motion.div
-            key={i}
+            key={heart.id}
             className="absolute text-2xl"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${heart.left}%`,
+              top: `${heart.top}%`,
               filter: 'drop-shadow(0 0 8px rgba(255, 215, 0, 0.6))'
             }}
             animate={{
@@ -30,9 +54,9 @@ export default function LoveLetter() {
               rotate: [0, 360]
             }}
             transition={{
-              duration: 4 + Math.random() * 3,
+              duration: heart.duration,
               repeat: Infinity,
-              delay: Math.random() * 3
+              delay: heart.delay
             }}
           >
             ❤️
