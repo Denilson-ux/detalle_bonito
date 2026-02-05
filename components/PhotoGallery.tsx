@@ -46,20 +46,32 @@ export default function PhotoGallery() {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center gap-4 mb-6">
-            <span className="text-5xl">💕</span>
-            <h2 className="text-6xl md:text-7xl font-bold text-gradient-gold" style={{ fontFamily: 'Georgia, serif' }}>
+            <span className="text-6xl">💕</span>
+            <h2 
+              className="text-6xl md:text-7xl font-bold text-white" 
+              style={{ 
+                fontFamily: 'Georgia, serif',
+                textShadow: '3px 3px 10px rgba(0,0,0,0.9), 0 0 30px rgba(255,215,0,0.5)'
+              }}
+            >
               Nuestros Recuerdos
             </h2>
-            <span className="text-5xl">💕</span>
+            <span className="text-6xl">💕</span>
           </div>
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mx-auto mb-6" />
-          <p className="text-xl md:text-2xl text-white font-semibold drop-shadow-lg max-w-2xl mx-auto" style={{ fontFamily: 'Georgia, serif' }}>
+          <p 
+            className="text-xl md:text-2xl text-white font-bold max-w-2xl mx-auto" 
+            style={{ 
+              fontFamily: 'Georgia, serif',
+              textShadow: '2px 2px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.3)'
+            }}
+          >
             Cada foto cuenta una historia, cada momento es único e irrepetible
           </p>
         </motion.div>
 
-        {/* Galería de fotos */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Galería de fotos RESPONSIVE: Mobile 1 col, Tablet 2 col, Desktop 3 col */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {photos.map((photo, index) => (
             <motion.div
               key={index}
@@ -87,7 +99,7 @@ export default function PhotoGallery() {
                       <svg className="w-24 h-24 mb-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                       </svg>
-                      <p className="text-sm">Imagen no disponible</p>
+                      <p className="text-base font-semibold">Imagen no disponible</p>
                       <p className="text-xs text-yellow-300/40 mt-1">Agrega foto{index + 1}.jpg</p>
                     </div>
                   )}
@@ -108,21 +120,21 @@ export default function PhotoGallery() {
                   )}
                 </div>
 
-                {/* Información de la foto CON MEJOR CONTRASTE */}
+                {/* Información de la foto con TEXTOS BLANCOS BRILLANTES */}
                 <div className="relative pt-5 pb-3 px-2 text-center">
                   <h3 
-                    className="text-2xl md:text-3xl font-bold mb-3 text-gradient-gold drop-shadow-[0_2px_8px_rgba(255,215,0,0.5)]" 
+                    className="text-2xl md:text-3xl font-bold mb-3 text-white" 
                     style={{ 
                       fontFamily: 'Georgia, serif',
-                      textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.3)'
+                      textShadow: '3px 3px 8px rgba(0,0,0,1), 0 0 25px rgba(255,215,0,0.6), 0 0 40px rgba(255,255,255,0.3)'
                     }}
                   >
                     {photo.title}
                   </h3>
                   <p 
-                    className="text-white text-base md:text-lg font-semibold" 
+                    className="text-white text-base md:text-lg font-bold" 
                     style={{
-                      textShadow: '1px 1px 3px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.5)'
+                      textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(255,215,0,0.4), 0 0 25px rgba(0,0,0,0.8)'
                     }}
                   >
                     {photo.description}
@@ -139,19 +151,26 @@ export default function PhotoGallery() {
                 <div className="pointer-events-none absolute bottom-3 right-3 w-10 h-10 border-b-2 border-r-2 border-yellow-300/50 group-hover:border-yellow-300/80 rounded-br-xl transition-all duration-500" />
               </div>
 
-              {/* Número de foto */}
+              {/* Número de foto con TEXTO BLANCO */}
               <motion.div
-                className="absolute -top-4 -right-4 w-14 h-14 rounded-full card-glass-black border-2 border-yellow-300/70 flex items-center justify-center text-yellow-300 font-bold text-2xl glow-gold"
+                className="absolute -top-4 -right-4 w-14 h-14 rounded-full card-glass-black border-2 border-yellow-300/70 flex items-center justify-center font-bold text-2xl glow-gold"
                 whileHover={{ rotate: 360, scale: 1.15 }}
                 transition={{ duration: 0.5 }}
               >
-                {index + 1}
+                <span 
+                  className="text-white"
+                  style={{
+                    textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(255,215,0,0.6)'
+                  }}
+                >
+                  {index + 1}
+                </span>
               </motion.div>
             </motion.div>
           ))}
         </div>
 
-        {/* Texto decorativo inferior */}
+        {/* Texto decorativo inferior con TEXTO BLANCO */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -160,10 +179,10 @@ export default function PhotoGallery() {
           className="text-center mt-16"
         >
           <p 
-            className="text-2xl text-white font-semibold italic" 
+            className="text-2xl md:text-3xl text-white font-bold italic" 
             style={{ 
               fontFamily: 'Georgia, serif',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.2)'
+              textShadow: '3px 3px 8px rgba(0,0,0,1), 0 0 25px rgba(255,215,0,0.4)'
             }}
           >
             “En cada foto, un pedazo de mi corazón late por ti”
@@ -188,7 +207,7 @@ export default function PhotoGallery() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative rounded-2xl overflow-hidden card-glass-black p-4">
-              <div className="relative w-full max-h-[80vh] flex items-center justify-center bg-black/50">
+              <div className="relative w-full max-h-[80vh] flex items-center justify-center bg-black/50 rounded-xl">
                 {!imageErrors[selectedPhoto] ? (
                   <img
                     src={photos[selectedPhoto].src}
@@ -201,7 +220,7 @@ export default function PhotoGallery() {
                     <svg className="w-32 h-32 mb-6" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                     </svg>
-                    <p className="text-xl">Imagen no disponible</p>
+                    <p className="text-xl font-semibold">Imagen no disponible</p>
                   </div>
                 )}
               </div>
@@ -209,28 +228,31 @@ export default function PhotoGallery() {
             
             <div className="mt-6 text-center">
               <h3 
-                className="text-4xl font-bold text-gradient-gold mb-3" 
+                className="text-4xl md:text-5xl font-bold text-white mb-3" 
                 style={{ 
                   fontFamily: 'Georgia, serif',
-                  textShadow: '2px 2px 6px rgba(0,0,0,0.9)'
+                  textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 30px rgba(255,215,0,0.6)'
                 }}
               >
                 {photos[selectedPhoto].title}
               </h3>
               <p 
-                className="text-2xl text-white font-semibold" 
+                className="text-2xl text-white font-bold" 
                 style={{
-                  textShadow: '1px 1px 4px rgba(0,0,0,0.9)'
+                  textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 20px rgba(255,215,0,0.4)'
                 }}
               >
                 {photos[selectedPhoto].description}
               </p>
             </div>
 
-            {/* Botón cerrar */}
+            {/* Botón cerrar con TEXTO BLANCO */}
             <button
               onClick={() => setSelectedPhoto(null)}
-              className="absolute -top-4 -right-4 w-14 h-14 rounded-full card-glass-black border-2 border-yellow-300/70 flex items-center justify-center text-white text-3xl hover:rotate-90 hover:scale-110 transition-transform duration-300 glow-gold"
+              className="absolute -top-4 -right-4 w-14 h-14 rounded-full card-glass-black border-2 border-yellow-300/70 flex items-center justify-center text-white font-bold text-3xl hover:rotate-90 hover:scale-110 transition-transform duration-300 glow-gold"
+              style={{
+                textShadow: '2px 2px 6px rgba(0,0,0,1)'
+              }}
             >
               ×
             </button>
