@@ -106,13 +106,14 @@ export default function Timeline() {
                   <span className="text-3xl">{i === 0 ? '✨' : i === 1 ? '💕' : '❤️'}</span>
                 </div>
 
-                {/* Imagen SUPER MINI GRID: h-24 = 96px */}
-                <div className="relative h-24 bg-gradient-to-br from-rose-900/30 to-pink-900/30 overflow-hidden">
+                {/* Imagen FORZADA A MINI con max-h: 96px */}
+                <div className="relative w-full bg-gradient-to-br from-rose-900/30 to-pink-900/30 overflow-hidden" style={{ height: '96px', maxHeight: '96px' }}>
                   {!imageErrors[memory.id] ? (
                     <img
                       src={memory.image}
                       alt={memory.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full max-h-24 object-cover group-hover:scale-105 transition-transform duration-700"
+                      style={{ maxHeight: '96px', objectFit: 'cover' }}
                       onError={() => handleImageError(memory.id)}
                     />
                   ) : (
@@ -235,13 +236,14 @@ export default function Timeline() {
 
             {/* Contenido scrolleable */}
             <div className="p-8 space-y-6 max-h-[calc(90vh-220px)] overflow-y-auto bg-black/50">
-              {/* Imagen en modal SUPER MINI: h-32 = 128px */}
-              <div className="relative h-32 rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-rose-900/30 to-pink-900/30">
+              {/* Imagen en modal FORZADA A MINI: 128px */}
+              <div className="relative w-full rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-rose-900/30 to-pink-900/30" style={{ height: '128px', maxHeight: '128px' }}>
                 {!imageErrors[selected.id] ? (
                   <img
                     src={selected.image}
                     alt={selected.title}
                     className="w-full h-full object-cover"
+                    style={{ maxHeight: '128px', objectFit: 'cover' }}
                     onError={() => handleImageError(selected.id)}
                   />
                 ) : (
