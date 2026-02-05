@@ -15,6 +15,14 @@ interface TimeLeft {
   seconds: number;
 }
 
+interface Star {
+  id: number;
+  left: number;
+  top: number;
+  delay: number;
+  duration: number;
+}
+
 export default function Counter({ startDate }: CounterProps) {
   const [timeElapsed, setTimeElapsed] = useState<TimeLeft>({
     years: 0,
@@ -24,6 +32,23 @@ export default function Counter({ startDate }: CounterProps) {
     minutes: 0,
     seconds: 0,
   });
+  
+  const [stars, setStars] = useState<Star[]>([]);
+
+  // Generar estrellas solo en el cliente
+  useEffect(() => {
+    const newStars: Star[] = [];
+    for (let i = 0; i < 20; i++) {
+      newStars.push({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 2,
+        duration: 2 + Math.random() * 2
+      });
+    }
+    setStars(newStars);
+  }, []);
 
   useEffect(() => {
     const calculateTime = () => {
@@ -77,13 +102,13 @@ export default function Counter({ startDate }: CounterProps) {
 
       {/* Estrellas decorativas animadas */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {stars.map((star) => (
           <motion.div
-            key={i}
+            key={star.id}
             className="absolute text-xl"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${star.left}%`,
+              top: `${star.top}%`,
               filter: 'drop-shadow(0 0 5px rgba(255, 215, 0, 0.8))'
             }}
             animate={{
@@ -91,9 +116,9 @@ export default function Counter({ startDate }: CounterProps) {
               scale: [1, 1.3, 1]
             }}
             transition={{
-              duration: 2 + Math.random() * 2,
+              duration: star.duration,
               repeat: Infinity,
-              delay: Math.random() * 2
+              delay: star.delay
             }}
           >
             ✨
