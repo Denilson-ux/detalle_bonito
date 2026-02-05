@@ -154,10 +154,9 @@ export default function Counter({ startDate }: CounterProps) {
           </motion.div>
           
           <h2 
-            className="text-5xl md:text-7xl font-bold mb-6" 
+            className="text-5xl md:text-7xl font-bold mb-6 force-white-text" 
             style={{ 
               fontFamily: 'Georgia, serif',
-              color: '#ffffff',
               textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 30px rgba(255,215,0,0.5)'
             }}
           >
@@ -165,10 +164,9 @@ export default function Counter({ startDate }: CounterProps) {
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mx-auto mb-6" />
           <p 
-            className="text-xl md:text-2xl font-semibold max-w-2xl mx-auto" 
+            className="text-xl md:text-2xl font-semibold max-w-2xl mx-auto force-white-text" 
             style={{ 
               fontFamily: 'Georgia, serif',
-              color: '#ffffff',
               textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 20px rgba(255,215,0,0.3)'
             }}
           >
@@ -232,28 +230,22 @@ export default function Counter({ startDate }: CounterProps) {
                   {unit.icon}
                 </motion.div>
 
-                {/* Valor numérico BLANCO FORZADO */}
+                {/* Valor numérico BLANCO FORZADO CON CLASE */}
                 <motion.div
                   key={unit.value}
                   initial={{ scale: 1.2, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="text-5xl md:text-6xl font-bold mb-3"
-                  style={{
-                    color: '#ffffff !important',
-                    textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 25px rgba(255,215,0,0.5), 0 0 50px rgba(255,215,0,0.3)'
-                  }}
+                  className="text-5xl md:text-6xl font-bold mb-3 force-white-text-number"
                 >
                   {unit.value.toString().padStart(2, '0')}
                 </motion.div>
 
-                {/* Label BLANCO FORZADO */}
+                {/* Label BLANCO FORZADO CON CLASE */}
                 <p 
-                  className="text-lg md:text-xl font-bold" 
+                  className="text-lg md:text-xl font-bold force-white-text-label" 
                   style={{ 
-                    fontFamily: 'Georgia, serif',
-                    color: '#ffffff !important',
-                    textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(255,215,0,0.4)'
+                    fontFamily: 'Georgia, serif'
                   }}
                 >
                   {unit.label}
@@ -294,10 +286,9 @@ export default function Counter({ startDate }: CounterProps) {
               duration: 3,
               repeat: Infinity
             }}
-            className="text-2xl md:text-3xl font-semibold italic mb-4"
+            className="text-2xl md:text-3xl font-semibold italic mb-4 force-white-text"
             style={{ 
               fontFamily: 'Georgia, serif',
-              color: '#ffffff',
               textShadow: '3px 3px 8px rgba(0,0,0,1), 0 0 25px rgba(255,215,0,0.4)'
             }}
           >
