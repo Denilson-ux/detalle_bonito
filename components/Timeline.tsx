@@ -87,8 +87,8 @@ export default function Timeline() {
           </div>
         </motion.div>
 
-        {/* Grid horizontal responsive: Mobile 1 col, Desktop 3 col */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Grid HORIZONTAL FORZADO: Mobile 1 col, Desde 640px = 3 col */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {memories.map((memory, i) => (
             <motion.article
               key={memory.id}
