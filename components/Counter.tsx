@@ -84,12 +84,12 @@ export default function Counter({ startDate }: CounterProps) {
   }, [startDate]);
 
   const timeUnits = [
-    { label: 'Años', value: timeElapsed.years, icon: '📅' },
-    { label: 'Meses', value: timeElapsed.months, icon: '🌙' },
-    { label: 'Días', value: timeElapsed.days, icon: '☀️' },
-    { label: 'Horas', value: timeElapsed.hours, icon: '⏰' },
-    { label: 'Minutos', value: timeElapsed.minutes, icon: '⏱️' },
-    { label: 'Segundos', value: timeElapsed.seconds, icon: '⚡' },
+    { label: 'Años', value: timeElapsed.years, icon: '📅', gradient: 'from-yellow-400 to-amber-500' },
+    { label: 'Meses', value: timeElapsed.months, icon: '🌙', gradient: 'from-amber-400 to-orange-500' },
+    { label: 'Días', value: timeElapsed.days, icon: '☀️', gradient: 'from-orange-400 to-red-500' },
+    { label: 'Horas', value: timeElapsed.hours, icon: '⏰', gradient: 'from-red-400 to-pink-500' },
+    { label: 'Minutos', value: timeElapsed.minutes, icon: '⏱️', gradient: 'from-pink-400 to-purple-500' },
+    { label: 'Segundos', value: timeElapsed.seconds, icon: '⚡', gradient: 'from-purple-400 to-yellow-500' },
   ];
 
   return (
@@ -154,20 +154,22 @@ export default function Counter({ startDate }: CounterProps) {
           </motion.div>
           
           <h2 
-            className="text-5xl md:text-7xl font-bold mb-6 text-white" 
+            className="text-5xl md:text-7xl font-bold mb-6" 
             style={{ 
               fontFamily: 'Georgia, serif',
-              textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 30px rgba(255,215,0,0.4)'
+              color: '#ffffff',
+              textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 30px rgba(255,215,0,0.5)'
             }}
           >
             Nuestro Tiempo Juntos
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mx-auto mb-6" />
           <p 
-            className="text-xl md:text-2xl text-white font-semibold max-w-2xl mx-auto" 
+            className="text-xl md:text-2xl font-semibold max-w-2xl mx-auto" 
             style={{ 
               fontFamily: 'Georgia, serif',
-              textShadow: '1px 1px 4px rgba(0,0,0,0.9)'
+              color: '#ffffff',
+              textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 20px rgba(255,215,0,0.3)'
             }}
           >
             Cada segundo a tu lado es un tesoro invaluable
@@ -195,11 +197,20 @@ export default function Counter({ startDate }: CounterProps) {
               }}
               className="relative group"
             >
-              {/* Tarjeta del contador */}
-              <div className="card-glass-black rounded-2xl p-6 md:p-8 relative overflow-hidden">
+              {/* Tarjeta del contador MEJORADA */}
+              <div 
+                className="rounded-2xl p-6 md:p-8 relative overflow-hidden backdrop-blur-md shadow-2xl"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(20,20,20,0.9) 100%)',
+                  border: '2px solid rgba(255, 215, 0, 0.3)'
+                }}
+              >
                 {/* Efecto de brillo al hacer hover */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-yellow-300/10 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(135deg, ${unit.gradient.includes('from') ? 'rgba(255,215,0,0.2)' : 'rgba(255,255,255,0.1)'} 0%, transparent 100%)`
+                  }}
                 />
 
                 {/* Icono */}
@@ -221,41 +232,48 @@ export default function Counter({ startDate }: CounterProps) {
                   {unit.icon}
                 </motion.div>
 
-                {/* Valor numérico BLANCO */}
+                {/* Valor numérico BLANCO FORZADO */}
                 <motion.div
                   key={unit.value}
                   initial={{ scale: 1.2, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.3 }}
-                  className="text-5xl md:text-6xl font-bold mb-3 text-white"
+                  className="text-5xl md:text-6xl font-bold mb-3"
                   style={{
-                    textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.4)'
+                    color: '#ffffff !important',
+                    textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 25px rgba(255,215,0,0.5), 0 0 50px rgba(255,215,0,0.3)'
                   }}
                 >
                   {unit.value.toString().padStart(2, '0')}
                 </motion.div>
 
-                {/* Label BLANCO */}
+                {/* Label BLANCO FORZADO */}
                 <p 
-                  className="text-white text-lg md:text-xl font-bold" 
+                  className="text-lg md:text-xl font-bold" 
                   style={{ 
                     fontFamily: 'Georgia, serif',
-                    textShadow: '1px 1px 4px rgba(0,0,0,0.9)'
+                    color: '#ffffff !important',
+                    textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(255,215,0,0.4)'
                   }}
                 >
                   {unit.label}
                 </p>
 
                 {/* Borde dorado con hover */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-yellow-300/30 group-hover:border-yellow-300/60 transition-all duration-500" />
+                <div 
+                  className="absolute inset-0 rounded-2xl transition-all duration-500 pointer-events-none"
+                  style={{
+                    border: '2px solid rgba(255, 215, 0, 0.3)'
+                  }}
+                />
                 
                 {/* Brillo en esquinas */}
-                <div className="absolute top-2 right-2 w-3 h-3 bg-yellow-300/0 group-hover:bg-yellow-300/80 rounded-full transition-all duration-500" />
-                <div className="absolute bottom-2 left-2 w-3 h-3 bg-yellow-300/0 group-hover:bg-yellow-300/80 rounded-full transition-all duration-500" />
+                <div className="absolute top-2 right-2 w-3 h-3 bg-yellow-300/50 group-hover:bg-yellow-300 rounded-full transition-all duration-500 shadow-lg shadow-yellow-300/50" />
+                <div className="absolute bottom-2 left-2 w-3 h-3 bg-yellow-300/50 group-hover:bg-yellow-300 rounded-full transition-all duration-500 shadow-lg shadow-yellow-300/50" />
               </div>
 
               {/* Sombra dorada al hover */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 glow-gold -z-10" />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" style={{ boxShadow: '0 0 40px rgba(255,215,0,0.6)' }} />
             </motion.div>
           ))}
         </div>
@@ -276,13 +294,14 @@ export default function Counter({ startDate }: CounterProps) {
               duration: 3,
               repeat: Infinity
             }}
-            className="text-2xl md:text-3xl text-white font-semibold italic mb-4"
+            className="text-2xl md:text-3xl font-semibold italic mb-4"
             style={{ 
               fontFamily: 'Georgia, serif',
-              textShadow: '2px 2px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.3)'
+              color: '#ffffff',
+              textShadow: '3px 3px 8px rgba(0,0,0,1), 0 0 25px rgba(255,215,0,0.4)'
             }}
           >
-            “Y seguiremos contando cada segundo juntos hasta la eternidad”
+            "Y seguiremos contando cada segundo juntos hasta la eternidad"
           </motion.p>
           <div className="flex justify-center gap-3 text-4xl">
             {['❤️', '💕', '✨'].map((emoji, i) => (
