@@ -106,8 +106,8 @@ export default function Timeline() {
                   <span className="text-3xl">{i === 0 ? '✨' : i === 1 ? '💕' : '❤️'}</span>
                 </div>
 
-                {/* Imagen MUCHO MÁS PEQUEÑA: Mobile 128px, Desktop 144px */}
-                <div className="relative h-32 md:h-36 bg-gradient-to-br from-rose-900/30 to-pink-900/30 overflow-hidden">
+                {/* Imagen SUPER MINI GRID: h-24 = 96px */}
+                <div className="relative h-24 bg-gradient-to-br from-rose-900/30 to-pink-900/30 overflow-hidden">
                   {!imageErrors[memory.id] ? (
                     <img
                       src={memory.image}
@@ -117,10 +117,10 @@ export default function Timeline() {
                     />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center text-yellow-300/60">
-                      <svg className="w-16 h-16 mb-2" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-12 h-12 mb-1" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                       </svg>
-                      <p className="text-xs font-semibold">Imagen no disponible</p>
+                      <p className="text-xs font-semibold">No disponible</p>
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-70 transition-opacity" />
@@ -235,8 +235,8 @@ export default function Timeline() {
 
             {/* Contenido scrolleable */}
             <div className="p-8 space-y-6 max-h-[calc(90vh-220px)] overflow-y-auto bg-black/50">
-              {/* Imagen en modal REDUCIDA: h-40 = 160px */}
-              <div className="relative h-40 rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-rose-900/30 to-pink-900/30">
+              {/* Imagen en modal SUPER MINI: h-32 = 128px */}
+              <div className="relative h-32 rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-rose-900/30 to-pink-900/30">
                 {!imageErrors[selected.id] ? (
                   <img
                     src={selected.image}
@@ -246,10 +246,10 @@ export default function Timeline() {
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center text-yellow-300/60">
-                    <svg className="w-20 h-20 mb-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-16 h-16 mb-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                     </svg>
-                    <p className="text-base font-medium">Imagen no disponible</p>
+                    <p className="text-sm font-medium">Imagen no disponible</p>
                   </div>
                 )}
               </div>
