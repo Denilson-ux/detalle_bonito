@@ -87,8 +87,8 @@ export default function Timeline() {
           </div>
         </motion.div>
 
-        {/* Grid HORIZONTAL FORZADO: Mobile 1 col, Desde 640px = 3 col */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        {/* FLEX HORIZONTAL FORZADO - Mobile: column, Desktop: row */}
+        <div className="flex flex-col md:flex-row gap-8 justify-center">
           {memories.map((memory, i) => (
             <motion.article
               key={memory.id}
@@ -96,7 +96,7 @@ export default function Timeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="group"
+              className="group flex-1 max-w-md"
             >
               {/* Caja/Div de la memoria */}
               <div className="bg-white/5 backdrop-blur-md rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden border-2 border-yellow-300/30 hover:border-yellow-300/60">
