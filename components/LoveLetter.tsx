@@ -76,7 +76,7 @@ export default function LoveLetter() {
           <div className="flex items-center justify-center gap-4 mb-6">
             <span className="text-6xl">💌</span>
             <h2 
-              className="text-6xl md:text-7xl font-bold text-white" 
+              className="text-6xl md:text-7xl font-bold force-white-text" 
               style={{ 
                 fontFamily: 'Georgia, serif',
                 textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 30px rgba(255,215,0,0.5)'
@@ -134,7 +134,7 @@ export default function LoveLetter() {
                       💌
                     </motion.div>
                     <h3 
-                      className="text-3xl md:text-4xl font-bold text-white mb-4" 
+                      className="text-3xl md:text-4xl font-bold force-white-text mb-4" 
                       style={{ 
                         fontFamily: 'Georgia, serif',
                         textShadow: '3px 3px 8px rgba(0,0,0,1), 0 0 25px rgba(255,215,0,0.5)'
@@ -143,7 +143,7 @@ export default function LoveLetter() {
                       Para el amor de mi vida
                     </h3>
                     <p 
-                      className="text-xl text-white font-bold mb-8" 
+                      className="text-xl force-white-text font-bold mb-8" 
                       style={{
                         textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(255,215,0,0.3)'
                       }}
@@ -199,7 +199,7 @@ export default function LoveLetter() {
                     {/* Encabezado */}
                     <div className="text-center mb-12">
                       <p 
-                        className="text-white text-lg mb-3 font-bold" 
+                        className="force-white-text text-lg mb-3 font-bold" 
                         style={{ 
                           fontFamily: 'Georgia, serif',
                           textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(255,215,0,0.3)'
@@ -208,7 +208,7 @@ export default function LoveLetter() {
                         Con todo mi amor
                       </p>
                       <h3 
-                        className="text-4xl md:text-5xl font-bold text-white mb-4" 
+                        className="text-4xl md:text-5xl font-bold force-white-text mb-4" 
                         style={{ 
                           fontFamily: 'Georgia, serif',
                           textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 30px rgba(255,215,0,0.5)'
@@ -221,13 +221,13 @@ export default function LoveLetter() {
 
                     {/* Cuerpo de la carta TODO BLANCO */}
                     <div 
-                      className="space-y-6 text-white text-lg md:text-xl leading-relaxed" 
+                      className="space-y-6 force-white-text text-lg md:text-xl leading-relaxed" 
                       style={{ 
                         fontFamily: 'Georgia, serif',
                         textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.2)'
                       }}
                     >
-                      <p className="first-letter:text-6xl first-letter:font-bold first-letter:text-white first-letter:mr-2 first-letter:float-left font-bold">
+                      <p className="first-letter:text-6xl first-letter:font-bold first-letter:force-white-text first-letter:mr-2 first-letter:float-left font-bold">
                         Mi amor, cada día que pasa a tu lado es un regalo del cielo. No existen palabras suficientes 
                         para expresar lo que siento cuando estoy contigo. Eres la luz que ilumina mis días más oscuros, 
                         la razón por la que sonrío cada mañana.
@@ -246,12 +246,12 @@ export default function LoveLetter() {
                       </p>
 
                       <p 
-                        className="text-center italic text-2xl md:text-3xl text-white py-6 font-extrabold" 
+                        className="text-center italic text-2xl md:text-3xl force-white-text py-6 font-extrabold" 
                         style={{
                           textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 30px rgba(255,215,0,0.6), 0 0 50px rgba(255,255,255,0.3)'
                         }}
                       >
-                        “Te amo hoy, te amaré mañana y te amaré por siempre”
+                        "Te amo hoy, te amaré mañana y te amaré por siempre"
                       </p>
 
                       <p className="font-bold">
@@ -267,7 +267,7 @@ export default function LoveLetter() {
                     {/* Firma */}
                     <div className="mt-12 text-right">
                       <p 
-                        className="text-2xl md:text-3xl text-white font-extrabold mb-2" 
+                        className="text-2xl md:text-3xl force-white-text font-extrabold mb-2" 
                         style={{ 
                           fontFamily: 'Brush Script MT, cursive',
                           textShadow: '3px 3px 8px rgba(0,0,0,1), 0 0 20px rgba(255,215,0,0.5)'
@@ -276,7 +276,7 @@ export default function LoveLetter() {
                         Con todo mi amor,
                       </p>
                       <p 
-                        className="text-3xl md:text-4xl text-white font-extrabold" 
+                        className="text-3xl md:text-4xl force-white-text font-extrabold" 
                         style={{ 
                           fontFamily: 'Brush Script MT, cursive',
                           textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 25px rgba(255,215,0,0.6)'
@@ -320,7 +320,7 @@ export default function LoveLetter() {
                   onClick={() => setIsOpen(false)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="mt-8 mx-auto block px-8 py-4 rounded-full card-glass-black border-2 border-yellow-300/70 text-white font-bold text-lg hover:glow-gold transition-all duration-300"
+                  className="mt-8 mx-auto block px-8 py-4 rounded-full card-glass-black border-2 border-yellow-300/70 force-white-text font-bold text-lg hover:glow-gold transition-all duration-300"
                   style={{ 
                     fontFamily: 'Georgia, serif',
                     textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(255,215,0,0.3)'
