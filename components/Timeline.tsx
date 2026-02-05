@@ -87,7 +87,7 @@ export default function Timeline() {
           </div>
         </motion.div>
 
-        {/* Grid horizontal responsive: Mobile 1 col (vertical stack), Desktop 3 col (horizontal) */}
+        {/* Grid horizontal responsive: Mobile 1 col, Desktop 3 col */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {memories.map((memory, i) => (
             <motion.article
@@ -106,14 +106,14 @@ export default function Timeline() {
                   <span className="text-3xl">{i === 0 ? '✨' : i === 1 ? '💕' : '❤️'}</span>
                 </div>
 
-                {/* Imagen RECTANGULAR VERTICAL más grande: Mobile 320px, Desktop 280px */}
-                <div className="relative w-full bg-gradient-to-br from-rose-900/30 to-pink-900/30 overflow-hidden" style={{ height: '280px', maxHeight: '280px' }}>
+                {/* Imagen RECTANGULAR pequeña centrada: 240px alto, aspect-ratio 3:4 */}
+                <div className="relative w-full flex justify-center bg-gradient-to-br from-rose-900/30 to-pink-900/30 overflow-hidden" style={{ height: '240px', maxHeight: '240px' }}>
                   {!imageErrors[memory.id] ? (
                     <img
                       src={memory.image}
                       alt={memory.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      style={{ maxHeight: '280px', objectFit: 'cover' }}
+                      className="h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      style={{ height: '240px', maxHeight: '240px', width: 'auto', maxWidth: '100%', objectFit: 'cover' }}
                       onError={() => handleImageError(memory.id)}
                     />
                   ) : (
@@ -236,14 +236,14 @@ export default function Timeline() {
 
             {/* Contenido scrolleable */}
             <div className="p-8 space-y-6 max-h-[calc(90vh-220px)] overflow-y-auto bg-black/50">
-              {/* Imagen en modal: 220px */}
-              <div className="relative w-full rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-rose-900/30 to-pink-900/30" style={{ height: '220px', maxHeight: '220px' }}>
+              {/* Imagen en modal centrada: 200px */}
+              <div className="relative w-full flex justify-center rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-rose-900/30 to-pink-900/30" style={{ height: '200px', maxHeight: '200px' }}>
                 {!imageErrors[selected.id] ? (
                   <img
                     src={selected.image}
                     alt={selected.title}
-                    className="w-full h-full object-cover"
-                    style={{ maxHeight: '220px', objectFit: 'cover' }}
+                    className="h-full object-cover"
+                    style={{ height: '200px', maxHeight: '200px', width: 'auto', maxWidth: '100%', objectFit: 'cover' }}
                     onError={() => handleImageError(selected.id)}
                   />
                 ) : (
