@@ -64,9 +64,9 @@ export default function PhotoGallery() {
               onClick={() => setSelectedPhoto(index)}
             >
               {/* Contenedor de la foto */}
-              <div className="relative overflow-hidden rounded-2xl card-glass-black p-3">
+              <div className="relative overflow-hidden rounded-2xl card-glass-black p-3 flex flex-col items-stretch h-full">
                 {/* Imagen */}
-                <div className="relative aspect-[3/4] overflow-hidden rounded-xl">
+                <div className="relative w-full h-72 md:h-64 lg:h-72 overflow-hidden rounded-xl">
                   <Image
                     src={photo.src}
                     alt={photo.title}
@@ -88,23 +88,23 @@ export default function PhotoGallery() {
                 </div>
 
                 {/* Información de la foto */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="relative pt-5 pb-3 px-2 text-center">
                   <h3 className="text-2xl font-bold text-white mb-2 text-gradient-gold" style={{ fontFamily: 'Georgia, serif' }}>
                     {photo.title}
                   </h3>
-                  <p className="text-white/90 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <p className="text-white/90 text-sm md:text-base">
                     {photo.description}
                   </p>
                 </div>
 
                 {/* Borde dorado animado */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-yellow-300/0 group-hover:border-yellow-300/50 transition-all duration-500" />
+                <div className="pointer-events-none absolute inset-0 rounded-2xl border-2 border-yellow-300/0 group-hover:border-yellow-300/50 transition-all duration-500" />
                 
                 {/* Esquinas decorativas */}
-                <div className="absolute top-3 left-3 w-8 h-8 border-t-2 border-l-2 border-yellow-300/0 group-hover:border-yellow-300/60 rounded-tl-xl transition-all duration-500" />
-                <div className="absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 border-yellow-300/0 group-hover:border-yellow-300/60 rounded-tr-xl transition-all duration-500" />
-                <div className="absolute bottom-3 left-3 w-8 h-8 border-b-2 border-l-2 border-yellow-300/0 group-hover:border-yellow-300/60 rounded-bl-xl transition-all duration-500" />
-                <div className="absolute bottom-3 right-3 w-8 h-8 border-b-2 border-r-2 border-yellow-300/0 group-hover:border-yellow-300/60 rounded-br-xl transition-all duration-500" />
+                <div className="pointer-events-none absolute top-3 left-3 w-8 h-8 border-t-2 border-l-2 border-yellow-300/0 group-hover:border-yellow-300/60 rounded-tl-xl transition-all duration-500" />
+                <div className="pointer-events-none absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 border-yellow-300/0 group-hover:border-yellow-300/60 rounded-tr-xl transition-all duration-500" />
+                <div className="pointer-events-none absolute bottom-3 left-3 w-8 h-8 border-b-2 border-l-2 border-yellow-300/0 group-hover:border-yellow-300/60 rounded-bl-xl transition-all duration-500" />
+                <div className="pointer-events-none absolute bottom-3 right-3 w-8 h-8 border-b-2 border-r-2 border-yellow-300/0 group-hover:border-yellow-300/60 rounded-br-xl transition-all duration-500" />
               </div>
 
               {/* Número de foto */}
@@ -149,14 +149,16 @@ export default function PhotoGallery() {
             className="relative max-w-4xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative aspect-[3/4] md:aspect-video rounded-2xl overflow-hidden card-glass-black p-4">
-              <Image
-                src={photos[selectedPhoto].src}
-                alt={photos[selectedPhoto].title}
-                fill
-                className="object-contain rounded-xl"
-                sizes="(max-width: 768px) 100vw, 80vw"
-              />
+            <div className="relative max-h-[80vh] w-full rounded-2xl overflow-hidden card-glass-black p-4 flex items-center justify-center">
+              <div className="relative w-full h-[60vh]">
+                <Image
+                  src={photos[selectedPhoto].src}
+                  alt={photos[selectedPhoto].title}
+                  fill
+                  className="object-contain rounded-xl"
+                  sizes="(max-width: 768px) 100vw, 80vw"
+                />
+              </div>
             </div>
             
             <div className="mt-6 text-center">
