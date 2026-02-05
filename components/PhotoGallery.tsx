@@ -1,7 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Image from 'next/image';
 
 const photos = [
   { 
@@ -64,15 +63,13 @@ export default function PhotoGallery() {
               onClick={() => setSelectedPhoto(index)}
             >
               {/* Contenedor de la foto */}
-              <div className="relative overflow-hidden rounded-2xl card-glass-black p-3 flex flex-col items-stretch h-full">
+              <div className="relative overflow-hidden rounded-2xl card-glass-black p-3">
                 {/* Imagen */}
-                <div className="relative w-full h-72 md:h-64 lg:h-72 overflow-hidden rounded-xl">
-                  <Image
+                <div className="relative w-full h-[400px] overflow-hidden rounded-xl">
+                  <img
                     src={photo.src}
                     alt={photo.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   
                   {/* Overlay con gradiente */}
@@ -146,17 +143,15 @@ export default function PhotoGallery() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
-            className="relative max-w-4xl w-full"
+            className="relative max-w-5xl w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative max-h-[80vh] w-full rounded-2xl overflow-hidden card-glass-black p-4 flex items-center justify-center">
-              <div className="relative w-full h-[60vh]">
-                <Image
+            <div className="relative rounded-2xl overflow-hidden card-glass-black p-4">
+              <div className="relative w-full max-h-[80vh] flex items-center justify-center">
+                <img
                   src={photos[selectedPhoto].src}
                   alt={photos[selectedPhoto].title}
-                  fill
-                  className="object-contain rounded-xl"
-                  sizes="(max-width: 768px) 100vw, 80vw"
+                  className="max-w-full max-h-[75vh] object-contain rounded-xl"
                 />
               </div>
             </div>
