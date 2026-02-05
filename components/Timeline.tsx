@@ -106,7 +106,7 @@ export default function Timeline() {
                   <span className="text-3xl">{i === 0 ? '✨' : i === 1 ? '💕' : '❤️'}</span>
                 </div>
 
-                {/* Imagen RECTANGULAR pequeña centrada: 240px alto, aspect-ratio 3:4 */}
+                {/* Imagen RECTANGULAR pequeña centrada: 240px alto */}
                 <div className="relative w-full flex justify-center bg-gradient-to-br from-rose-900/30 to-pink-900/30 overflow-hidden" style={{ height: '240px', maxHeight: '240px' }}>
                   {!imageErrors[memory.id] ? (
                     <img
@@ -138,16 +138,19 @@ export default function Timeline() {
                     {memory.title}
                   </h3>
                   
-                  <div 
-                    className="flex items-center gap-2 text-base text-white font-bold"
-                    style={{
-                      textShadow: '1px 1px 3px rgba(0,0,0,1)'
-                    }}
-                  >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  {/* Fecha con ícono CORREGIDO - mejor alineación */}
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 flex-shrink-0 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
                     </svg>
-                    <span>{memory.date}</span>
+                    <span 
+                      className="text-sm text-white font-bold"
+                      style={{
+                        textShadow: '1px 1px 3px rgba(0,0,0,1)'
+                      }}
+                    >
+                      {memory.date}
+                    </span>
                   </div>
 
                   <p 
@@ -159,14 +162,17 @@ export default function Timeline() {
                     {memory.description}
                   </p>
 
+                  {/* Botón CORREGIDO - mejor centrado */}
                   <button
                     onClick={() => setSelected(memory)}
-                    className="w-full mt-4 bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white py-3 px-4 rounded-xl font-bold text-base transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-105 shadow-lg"
+                    className="w-full mt-4 bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white py-3 px-6 rounded-xl font-bold text-base transition-all duration-300 shadow-lg group-hover:scale-105"
                   >
-                    <span>Leer Historia</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                    <div className="flex items-center justify-center gap-2">
+                      <span>Leer Historia</span>
+                      <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </div>
