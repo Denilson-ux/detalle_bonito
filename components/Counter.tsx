@@ -84,12 +84,12 @@ export default function Counter({ startDate }: CounterProps) {
   }, [startDate]);
 
   const timeUnits = [
-    { label: 'Años', value: timeElapsed.years, icon: '📅', color: 'from-yellow-300 to-yellow-500' },
-    { label: 'Meses', value: timeElapsed.months, icon: '🌙', color: 'from-yellow-200 to-yellow-400' },
-    { label: 'Días', value: timeElapsed.days, icon: '☀️', color: 'from-yellow-300 to-amber-400' },
-    { label: 'Horas', value: timeElapsed.hours, icon: '⏰', color: 'from-amber-300 to-yellow-400' },
-    { label: 'Minutos', value: timeElapsed.minutes, icon: '⏱️', color: 'from-yellow-400 to-amber-300' },
-    { label: 'Segundos', value: timeElapsed.seconds, icon: '⚡', color: 'from-yellow-300 to-yellow-500' },
+    { label: 'Años', value: timeElapsed.years, icon: '📅' },
+    { label: 'Meses', value: timeElapsed.months, icon: '🌙' },
+    { label: 'Días', value: timeElapsed.days, icon: '☀️' },
+    { label: 'Horas', value: timeElapsed.hours, icon: '⏰' },
+    { label: 'Minutos', value: timeElapsed.minutes, icon: '⏱️' },
+    { label: 'Segundos', value: timeElapsed.seconds, icon: '⚡' },
   ];
 
   return (
@@ -153,11 +153,23 @@ export default function Counter({ startDate }: CounterProps) {
             💕
           </motion.div>
           
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 text-gradient-gold" style={{ fontFamily: 'Georgia, serif' }}>
+          <h2 
+            className="text-5xl md:text-7xl font-bold mb-6 text-white" 
+            style={{ 
+              fontFamily: 'Georgia, serif',
+              textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 30px rgba(255,215,0,0.4)'
+            }}
+          >
             Nuestro Tiempo Juntos
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mx-auto mb-6" />
-          <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto" style={{ fontFamily: 'Georgia, serif' }}>
+          <p 
+            className="text-xl md:text-2xl text-white font-semibold max-w-2xl mx-auto" 
+            style={{ 
+              fontFamily: 'Georgia, serif',
+              textShadow: '1px 1px 4px rgba(0,0,0,0.9)'
+            }}
+          >
             Cada segundo a tu lado es un tesoro invaluable
           </p>
         </motion.div>
@@ -187,10 +199,7 @@ export default function Counter({ startDate }: CounterProps) {
               <div className="card-glass-black rounded-2xl p-6 md:p-8 relative overflow-hidden">
                 {/* Efecto de brillo al hacer hover */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-                  style={{
-                    backgroundImage: `linear-gradient(135deg, transparent, var(--tw-gradient-from), transparent)`
-                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-yellow-300/10 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"
                 />
 
                 {/* Icono */}
@@ -212,27 +221,33 @@ export default function Counter({ startDate }: CounterProps) {
                   {unit.icon}
                 </motion.div>
 
-                {/* Valor numérico */}
+                {/* Valor numérico BLANCO */}
                 <motion.div
                   key={unit.value}
                   initial={{ scale: 1.2, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.3 }}
-                  className={`text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-br ${unit.color} bg-clip-text text-transparent`}
+                  className="text-5xl md:text-6xl font-bold mb-3 text-white"
                   style={{
-                    filter: 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.5))'
+                    textShadow: '2px 2px 8px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.4)'
                   }}
                 >
                   {unit.value.toString().padStart(2, '0')}
                 </motion.div>
 
-                {/* Label */}
-                <p className="text-white/90 text-lg md:text-xl font-semibold" style={{ fontFamily: 'Georgia, serif' }}>
+                {/* Label BLANCO */}
+                <p 
+                  className="text-white text-lg md:text-xl font-bold" 
+                  style={{ 
+                    fontFamily: 'Georgia, serif',
+                    textShadow: '1px 1px 4px rgba(0,0,0,0.9)'
+                  }}
+                >
                   {unit.label}
                 </p>
 
                 {/* Borde dorado con hover */}
-                <div className="absolute inset-0 rounded-2xl border-2 border-yellow-300/0 group-hover:border-yellow-300/50 transition-all duration-500" />
+                <div className="absolute inset-0 rounded-2xl border-2 border-yellow-300/30 group-hover:border-yellow-300/60 transition-all duration-500" />
                 
                 {/* Brillo en esquinas */}
                 <div className="absolute top-2 right-2 w-3 h-3 bg-yellow-300/0 group-hover:bg-yellow-300/80 rounded-full transition-all duration-500" />
@@ -255,14 +270,17 @@ export default function Counter({ startDate }: CounterProps) {
         >
           <motion.p
             animate={{
-              opacity: [0.7, 1, 0.7]
+              opacity: [0.8, 1, 0.8]
             }}
             transition={{
               duration: 3,
               repeat: Infinity
             }}
-            className="text-2xl md:text-3xl text-gradient-white italic mb-4"
-            style={{ fontFamily: 'Georgia, serif' }}
+            className="text-2xl md:text-3xl text-white font-semibold italic mb-4"
+            style={{ 
+              fontFamily: 'Georgia, serif',
+              textShadow: '2px 2px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.3)'
+            }}
           >
             “Y seguiremos contando cada segundo juntos hasta la eternidad”
           </motion.p>
