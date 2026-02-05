@@ -251,7 +251,7 @@ export default function Hero({ onEnter }: HeroProps) {
                 repeat: Infinity,
                 repeatType: 'reverse'
               }}
-              className="text-2xl md:text-3xl text-white font-semibold px-10 py-5 rounded-full inline-block card-glass-black glow-gold relative overflow-hidden"
+              className="text-2xl md:text-3xl font-semibold px-10 py-5 rounded-full inline-block card-glass-black glow-gold relative overflow-hidden force-white-text"
               style={{
                 fontFamily: 'Georgia, serif'
               }}
@@ -279,7 +279,7 @@ export default function Hero({ onEnter }: HeroProps) {
             transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
             className="relative inline-block"
           >
-            <div className="text-3xl md:text-4xl text-white font-bold px-12 py-6 rounded-2xl inline-block card-glass-black glow-gold">
+            <div className="text-3xl md:text-4xl font-bold px-12 py-6 rounded-2xl inline-block card-glass-black glow-gold">
               <motion.span
                 animate={{
                   opacity: [1, 0.6, 1]
@@ -288,6 +288,7 @@ export default function Hero({ onEnter }: HeroProps) {
                   duration: 1.5,
                   repeat: Infinity
                 }}
+                className="force-white-text"
                 style={{
                   fontFamily: 'Georgia, serif'
                 }}
