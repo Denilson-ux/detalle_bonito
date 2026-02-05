@@ -74,11 +74,17 @@ export default function LoveLetter() {
           className="text-center mb-12"
         >
           <div className="flex items-center justify-center gap-4 mb-6">
-            <span className="text-5xl">💌</span>
-            <h2 className="text-6xl md:text-7xl font-bold text-gradient-gold" style={{ fontFamily: 'Georgia, serif' }}>
+            <span className="text-6xl">💌</span>
+            <h2 
+              className="text-6xl md:text-7xl font-bold text-white" 
+              style={{ 
+                fontFamily: 'Georgia, serif',
+                textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 30px rgba(255,215,0,0.5)'
+              }}
+            >
               Carta de Amor
             </h2>
-            <span className="text-5xl">💌</span>
+            <span className="text-6xl">💌</span>
           </div>
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mx-auto" />
         </motion.div>
@@ -131,15 +137,15 @@ export default function LoveLetter() {
                       className="text-3xl md:text-4xl font-bold text-white mb-4" 
                       style={{ 
                         fontFamily: 'Georgia, serif',
-                        textShadow: '2px 2px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.3)'
+                        textShadow: '3px 3px 8px rgba(0,0,0,1), 0 0 25px rgba(255,215,0,0.5)'
                       }}
                     >
                       Para el amor de mi vida
                     </h3>
                     <p 
-                      className="text-xl text-white font-semibold mb-8" 
+                      className="text-xl text-white font-bold mb-8" 
                       style={{
-                        textShadow: '1px 1px 4px rgba(0,0,0,0.9)'
+                        textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(255,215,0,0.3)'
                       }}
                     >
                       Haz click para abrir la carta
@@ -193,19 +199,19 @@ export default function LoveLetter() {
                     {/* Encabezado */}
                     <div className="text-center mb-12">
                       <p 
-                        className="text-yellow-300 text-base mb-3 font-semibold" 
+                        className="text-white text-lg mb-3 font-bold" 
                         style={{ 
                           fontFamily: 'Georgia, serif',
-                          textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
+                          textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(255,215,0,0.3)'
                         }}
                       >
                         Con todo mi amor
                       </p>
                       <h3 
-                        className="text-4xl md:text-5xl font-bold text-gradient-gold mb-4" 
+                        className="text-4xl md:text-5xl font-bold text-white mb-4" 
                         style={{ 
                           fontFamily: 'Georgia, serif',
-                          textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+                          textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 30px rgba(255,215,0,0.5)'
                         }}
                       >
                         Mi Amor Eterno
@@ -213,47 +219,47 @@ export default function LoveLetter() {
                       <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mx-auto" />
                     </div>
 
-                    {/* Cuerpo de la carta CON MEJOR CONTRASTE */}
+                    {/* Cuerpo de la carta TODO BLANCO */}
                     <div 
                       className="space-y-6 text-white text-lg md:text-xl leading-relaxed" 
                       style={{ 
                         fontFamily: 'Georgia, serif',
-                        textShadow: '1px 1px 3px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.5)'
+                        textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(0,0,0,0.8), 0 0 20px rgba(255,215,0,0.2)'
                       }}
                     >
-                      <p className="first-letter:text-6xl first-letter:font-bold first-letter:text-yellow-300 first-letter:mr-2 first-letter:float-left font-medium">
+                      <p className="first-letter:text-6xl first-letter:font-bold first-letter:text-white first-letter:mr-2 first-letter:float-left font-bold">
                         Mi amor, cada día que pasa a tu lado es un regalo del cielo. No existen palabras suficientes 
                         para expresar lo que siento cuando estoy contigo. Eres la luz que ilumina mis días más oscuros, 
                         la razón por la que sonrío cada mañana.
                       </p>
 
-                      <p className="font-medium">
+                      <p className="font-bold">
                         En tus ojos encuentro el reflejo de un futuro lleno de esperanza y felicidad. Contigo he aprendido 
                         que el amor verdadero no es solo una emoción, sino una decisión diaria de elegirte una y otra vez, 
                         de estar ahí en los buenos y malos momentos.
                       </p>
 
-                      <p className="font-medium">
+                      <p className="font-bold">
                         Gracias por ser mi compañera, mi mejor amiga, mi confidente y mi todo. Gracias por llenar mi vida 
                         de color, alegría y amor incondicional. Cada momento contigo es un tesoro que guardo en lo más 
                         profundo de mi corazón.
                       </p>
 
                       <p 
-                        className="text-center italic text-2xl md:text-3xl text-yellow-300 py-6 font-bold" 
+                        className="text-center italic text-2xl md:text-3xl text-white py-6 font-extrabold" 
                         style={{
-                          textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.4)'
+                          textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 30px rgba(255,215,0,0.6), 0 0 50px rgba(255,255,255,0.3)'
                         }}
                       >
                         “Te amo hoy, te amaré mañana y te amaré por siempre”
                       </p>
 
-                      <p className="font-medium">
+                      <p className="font-bold">
                         Quiero que sepas que mi amor por ti crece cada día. No importa cuántos obstáculos encontremos en 
                         el camino, siempre estaré a tu lado, tomándote de la mano y caminando juntos hacia nuestros sueños.
                       </p>
 
-                      <p className="font-bold text-xl">
+                      <p className="font-extrabold text-xl">
                         Eres y siempre serás el amor de mi vida. ❤️
                       </p>
                     </div>
@@ -261,19 +267,19 @@ export default function LoveLetter() {
                     {/* Firma */}
                     <div className="mt-12 text-right">
                       <p 
-                        className="text-2xl md:text-3xl text-gradient-gold font-bold mb-2" 
+                        className="text-2xl md:text-3xl text-white font-extrabold mb-2" 
                         style={{ 
                           fontFamily: 'Brush Script MT, cursive',
-                          textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+                          textShadow: '3px 3px 8px rgba(0,0,0,1), 0 0 20px rgba(255,215,0,0.5)'
                         }}
                       >
                         Con todo mi amor,
                       </p>
                       <p 
-                        className="text-3xl md:text-4xl text-gradient-gold font-bold" 
+                        className="text-3xl md:text-4xl text-white font-extrabold" 
                         style={{ 
                           fontFamily: 'Brush Script MT, cursive',
-                          textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+                          textShadow: '3px 3px 10px rgba(0,0,0,1), 0 0 25px rgba(255,215,0,0.6)'
                         }}
                       >
                         Tu amor eterno 💕
@@ -317,7 +323,7 @@ export default function LoveLetter() {
                   className="mt-8 mx-auto block px-8 py-4 rounded-full card-glass-black border-2 border-yellow-300/70 text-white font-bold text-lg hover:glow-gold transition-all duration-300"
                   style={{ 
                     fontFamily: 'Georgia, serif',
-                    textShadow: '1px 1px 3px rgba(0,0,0,0.9)'
+                    textShadow: '2px 2px 6px rgba(0,0,0,1), 0 0 15px rgba(255,215,0,0.3)'
                   }}
                 >
                   Cerrar Carta
