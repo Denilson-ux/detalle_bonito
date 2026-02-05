@@ -73,9 +73,13 @@ export default function LoveLetter() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-6xl md:text-7xl font-bold mb-6 text-gradient-gold" style={{ fontFamily: 'Georgia, serif' }}>
-            Carta de Amor
-          </h2>
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="text-5xl">💌</span>
+            <h2 className="text-6xl md:text-7xl font-bold text-gradient-gold" style={{ fontFamily: 'Georgia, serif' }}>
+              Carta de Amor
+            </h2>
+            <span className="text-5xl">💌</span>
+          </div>
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mx-auto" />
         </motion.div>
 
@@ -123,10 +127,21 @@ export default function LoveLetter() {
                     >
                       💌
                     </motion.div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-4" style={{ fontFamily: 'Georgia, serif' }}>
+                    <h3 
+                      className="text-3xl md:text-4xl font-bold text-white mb-4" 
+                      style={{ 
+                        fontFamily: 'Georgia, serif',
+                        textShadow: '2px 2px 6px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.3)'
+                      }}
+                    >
                       Para el amor de mi vida
                     </h3>
-                    <p className="text-xl text-white/70 mb-8">
+                    <p 
+                      className="text-xl text-white font-semibold mb-8" 
+                      style={{
+                        textShadow: '1px 1px 4px rgba(0,0,0,0.9)'
+                      }}
+                    >
                       Haz click para abrir la carta
                     </p>
                     
@@ -145,7 +160,7 @@ export default function LoveLetter() {
                   </div>
 
                   {/* Borde dorado animado */}
-                  <div className="absolute inset-0 rounded-2xl border-2 border-yellow-300/30 group-hover:border-yellow-300/60 transition-all duration-500 glow-gold" />
+                  <div className="absolute inset-0 rounded-2xl border-2 border-yellow-300/40 group-hover:border-yellow-300/70 transition-all duration-500 glow-gold" />
                 </div>
               </motion.div>
             )}
@@ -161,71 +176,106 @@ export default function LoveLetter() {
                 <div className="card-glass-black rounded-2xl p-8 md:p-16 relative overflow-hidden">
                   {/* Decoración de esquinas */}
                   <div className="absolute top-0 left-0 w-32 h-32">
-                    <div className="absolute top-4 left-4 w-16 h-16 border-t-2 border-l-2 border-yellow-300/40 rounded-tl-3xl" />
+                    <div className="absolute top-4 left-4 w-16 h-16 border-t-2 border-l-2 border-yellow-300/60 rounded-tl-3xl" />
                   </div>
                   <div className="absolute top-0 right-0 w-32 h-32">
-                    <div className="absolute top-4 right-4 w-16 h-16 border-t-2 border-r-2 border-yellow-300/40 rounded-tr-3xl" />
+                    <div className="absolute top-4 right-4 w-16 h-16 border-t-2 border-r-2 border-yellow-300/60 rounded-tr-3xl" />
                   </div>
                   <div className="absolute bottom-0 left-0 w-32 h-32">
-                    <div className="absolute bottom-4 left-4 w-16 h-16 border-b-2 border-l-2 border-yellow-300/40 rounded-bl-3xl" />
+                    <div className="absolute bottom-4 left-4 w-16 h-16 border-b-2 border-l-2 border-yellow-300/60 rounded-bl-3xl" />
                   </div>
                   <div className="absolute bottom-0 right-0 w-32 h-32">
-                    <div className="absolute bottom-4 right-4 w-16 h-16 border-b-2 border-r-2 border-yellow-300/40 rounded-br-3xl" />
+                    <div className="absolute bottom-4 right-4 w-16 h-16 border-b-2 border-r-2 border-yellow-300/60 rounded-br-3xl" />
                   </div>
 
                   {/* Contenido de la carta */}
                   <div className="relative z-10 max-w-2xl mx-auto">
                     {/* Encabezado */}
                     <div className="text-center mb-12">
-                      <p className="text-yellow-300/80 text-sm mb-2" style={{ fontFamily: 'Georgia, serif' }}>
+                      <p 
+                        className="text-yellow-300 text-base mb-3 font-semibold" 
+                        style={{ 
+                          fontFamily: 'Georgia, serif',
+                          textShadow: '1px 1px 3px rgba(0,0,0,0.8)'
+                        }}
+                      >
                         Con todo mi amor
                       </p>
-                      <h3 className="text-4xl md:text-5xl font-bold text-gradient-gold mb-4" style={{ fontFamily: 'Georgia, serif' }}>
+                      <h3 
+                        className="text-4xl md:text-5xl font-bold text-gradient-gold mb-4" 
+                        style={{ 
+                          fontFamily: 'Georgia, serif',
+                          textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+                        }}
+                      >
                         Mi Amor Eterno
                       </h3>
                       <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-yellow-300 to-transparent mx-auto" />
                     </div>
 
-                    {/* Cuerpo de la carta */}
-                    <div className="space-y-6 text-white/90 text-lg leading-relaxed" style={{ fontFamily: 'Georgia, serif' }}>
-                      <p className="first-letter:text-5xl first-letter:font-bold first-letter:text-yellow-300 first-letter:mr-2 first-letter:float-left">
+                    {/* Cuerpo de la carta CON MEJOR CONTRASTE */}
+                    <div 
+                      className="space-y-6 text-white text-lg md:text-xl leading-relaxed" 
+                      style={{ 
+                        fontFamily: 'Georgia, serif',
+                        textShadow: '1px 1px 3px rgba(0,0,0,0.9), 0 0 10px rgba(0,0,0,0.5)'
+                      }}
+                    >
+                      <p className="first-letter:text-6xl first-letter:font-bold first-letter:text-yellow-300 first-letter:mr-2 first-letter:float-left font-medium">
                         Mi amor, cada día que pasa a tu lado es un regalo del cielo. No existen palabras suficientes 
                         para expresar lo que siento cuando estoy contigo. Eres la luz que ilumina mis días más oscuros, 
                         la razón por la que sonrío cada mañana.
                       </p>
 
-                      <p>
+                      <p className="font-medium">
                         En tus ojos encuentro el reflejo de un futuro lleno de esperanza y felicidad. Contigo he aprendido 
                         que el amor verdadero no es solo una emoción, sino una decisión diaria de elegirte una y otra vez, 
                         de estar ahí en los buenos y malos momentos.
                       </p>
 
-                      <p>
+                      <p className="font-medium">
                         Gracias por ser mi compañera, mi mejor amiga, mi confidente y mi todo. Gracias por llenar mi vida 
                         de color, alegría y amor incondicional. Cada momento contigo es un tesoro que guardo en lo más 
                         profundo de mi corazón.
                       </p>
 
-                      <p className="text-center italic text-xl text-yellow-300/90 py-6">
+                      <p 
+                        className="text-center italic text-2xl md:text-3xl text-yellow-300 py-6 font-bold" 
+                        style={{
+                          textShadow: '2px 2px 4px rgba(0,0,0,0.9), 0 0 20px rgba(255,215,0,0.4)'
+                        }}
+                      >
                         “Te amo hoy, te amaré mañana y te amaré por siempre”
                       </p>
 
-                      <p>
+                      <p className="font-medium">
                         Quiero que sepas que mi amor por ti crece cada día. No importa cuántos obstáculos encontremos en 
                         el camino, siempre estaré a tu lado, tomándote de la mano y caminando juntos hacia nuestros sueños.
                       </p>
 
-                      <p className="font-semibold">
+                      <p className="font-bold text-xl">
                         Eres y siempre serás el amor de mi vida. ❤️
                       </p>
                     </div>
 
                     {/* Firma */}
                     <div className="mt-12 text-right">
-                      <p className="text-2xl text-gradient-gold font-bold mb-2" style={{ fontFamily: 'Brush Script MT, cursive' }}>
+                      <p 
+                        className="text-2xl md:text-3xl text-gradient-gold font-bold mb-2" 
+                        style={{ 
+                          fontFamily: 'Brush Script MT, cursive',
+                          textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+                        }}
+                      >
                         Con todo mi amor,
                       </p>
-                      <p className="text-3xl text-gradient-gold font-bold" style={{ fontFamily: 'Brush Script MT, cursive' }}>
+                      <p 
+                        className="text-3xl md:text-4xl text-gradient-gold font-bold" 
+                        style={{ 
+                          fontFamily: 'Brush Script MT, cursive',
+                          textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+                        }}
+                      >
                         Tu amor eterno 💕
                       </p>
                     </div>
@@ -256,7 +306,7 @@ export default function LoveLetter() {
                   </div>
 
                   {/* Borde dorado con brillo */}
-                  <div className="absolute inset-0 rounded-2xl border-2 border-yellow-300/50 glow-gold" />
+                  <div className="absolute inset-0 rounded-2xl border-2 border-yellow-300/60 glow-gold" />
                 </div>
 
                 {/* Botón para cerrar */}
@@ -264,8 +314,11 @@ export default function LoveLetter() {
                   onClick={() => setIsOpen(false)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="mt-8 mx-auto block px-8 py-4 rounded-full card-glass-black border-2 border-yellow-300/50 text-white font-semibold hover:glow-gold transition-all duration-300"
-                  style={{ fontFamily: 'Georgia, serif' }}
+                  className="mt-8 mx-auto block px-8 py-4 rounded-full card-glass-black border-2 border-yellow-300/70 text-white font-bold text-lg hover:glow-gold transition-all duration-300"
+                  style={{ 
+                    fontFamily: 'Georgia, serif',
+                    textShadow: '1px 1px 3px rgba(0,0,0,0.9)'
+                  }}
                 >
                   Cerrar Carta
                 </motion.button>
