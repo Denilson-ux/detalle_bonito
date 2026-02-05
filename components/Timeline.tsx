@@ -106,8 +106,8 @@ export default function Timeline() {
                   <span className="text-3xl">{i === 0 ? '✨' : i === 1 ? '💕' : '❤️'}</span>
                 </div>
 
-                {/* Imagen responsive con fallback */}
-                <div className="relative h-64 md:h-72 bg-gradient-to-br from-rose-900/30 to-pink-900/30 overflow-hidden">
+                {/* Imagen responsive REDUCIDA: Mobile 192px, Desktop 224px */}
+                <div className="relative h-48 md:h-56 bg-gradient-to-br from-rose-900/30 to-pink-900/30 overflow-hidden">
                   {!imageErrors[memory.id] ? (
                     <img
                       src={memory.image}
