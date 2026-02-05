@@ -138,7 +138,7 @@ export default function Timeline() {
                     {memory.title}
                   </h3>
                   
-                  {/* Fecha con ícono CORREGIDO - mejor alineación */}
+                  {/* Fecha con ícono más pequeño */}
                   <div className="flex items-center gap-2">
                     <svg className="w-4 h-4 flex-shrink-0 text-white" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
@@ -162,15 +162,22 @@ export default function Timeline() {
                     {memory.description}
                   </p>
 
-                  {/* Botón CORREGIDO - mejor centrado */}
+                  {/* Botón con flecha MINI */}
                   <button
                     onClick={() => setSelected(memory)}
                     className="w-full mt-4 bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white py-3 px-6 rounded-xl font-bold text-base transition-all duration-300 shadow-lg group-hover:scale-105"
                   >
                     <div className="flex items-center justify-center gap-2">
                       <span>Leer Historia</span>
-                      <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      {/* Flecha MUCHO más pequeña: w-4 h-4 */}
+                      <svg 
+                        className="w-4 h-4 flex-shrink-0" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                        style={{ width: '16px', height: '16px', minWidth: '16px', minHeight: '16px' }}
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
                   </button>
