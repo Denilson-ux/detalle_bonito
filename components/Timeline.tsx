@@ -235,8 +235,8 @@ export default function Timeline() {
 
             {/* Contenido scrolleable */}
             <div className="p-8 space-y-6 max-h-[calc(90vh-220px)] overflow-y-auto bg-black/50">
-              {/* Imagen en modal */}
-              <div className="relative h-72 rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-rose-900/30 to-pink-900/30">
+              {/* Imagen en modal REDUCIDA: 180px */}
+              <div className="relative h-45 rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-rose-900/30 to-pink-900/30">
                 {!imageErrors[selected.id] ? (
                   <img
                     src={selected.image}
@@ -246,7 +246,7 @@ export default function Timeline() {
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center text-yellow-300/60">
-                    <svg className="w-24 h-24 mb-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-20 h-20 mb-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
                     </svg>
                     <p className="text-base font-medium">Imagen no disponible</p>
