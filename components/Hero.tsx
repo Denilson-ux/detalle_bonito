@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { useState } from 'react';
+import Image from 'next/image';
 
 interface HeroProps {
   onEnter: () => void;
@@ -12,126 +13,276 @@ export default function Hero({ onEnter }: HeroProps) {
 
   const handleClick = () => {
     if (!clicked) {
-      // Crear corazones con animación
-      for (let i = 0; i < 50; i++) {
-        setTimeout(() => createHeart(), i * 30);
+      // Crear corazones y estrellas doradas con animación
+      for (let i = 0; i < 60; i++) {
+        setTimeout(() => createHeart(), i * 25);
       }
       
       setClicked(true);
-      setTimeout(() => onEnter(), 2000);
+      setTimeout(() => onEnter(), 2500);
     }
   };
 
   const createHeart = () => {
+    const symbols = ['❤️', '💕', '💖', '💗', '⭐', '✨', '💫'];
     const heart = document.createElement('div');
-    heart.innerHTML = ['❤️', '💕', '💖', '💗'][Math.floor(Math.random() * 4)];
+    heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
     heart.style.position = 'fixed';
     heart.style.left = Math.random() * 100 + '%';
     heart.style.top = '50%';
-    heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+    heart.style.fontSize = Math.random() * 40 + 25 + 'px';
     heart.style.zIndex = '9999';
     heart.style.pointerEvents = 'none';
+    heart.style.filter = 'drop-shadow(0 0 10px rgba(255, 215, 0, 0.8))';
     
     const angle = Math.random() * Math.PI * 2;
-    const velocity = Math.random() * 300 + 200;
+    const velocity = Math.random() * 400 + 250;
     const tx = Math.cos(angle) * velocity;
     const ty = Math.sin(angle) * velocity;
     
     heart.animate([
       { transform: 'translate(0, 0) scale(0) rotate(0deg)', opacity: 1 },
-      { transform: `translate(${tx}px, ${ty}px) scale(1) rotate(360deg)`, opacity: 0 }
+      { transform: `translate(${tx}px, ${ty}px) scale(1.5) rotate(720deg)`, opacity: 0 }
     ], {
-      duration: 2000,
-      easing: 'ease-out'
+      duration: 2500,
+      easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
     });
     
     document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 2000);
+    setTimeout(() => heart.remove(), 2500);
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-purple-900 via-pink-900 to-red-900">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
+      {/* Fondo con imagen de textura sutil */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,215,0,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.05),transparent_40%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(218,165,32,0.08),transparent_40%)]" />
+      </div>
+
+      {/* Partículas doradas flotantes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(30)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-yellow-300 rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              boxShadow: '0 0 10px rgba(255, 215, 0, 0.8)'
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.2, 1, 0.2],
+              scale: [1, 1.5, 1]
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2
+            }}
+          />
+        ))}
+      </div>
+
       {/* Contenido principal */}
-      <div className="relative z-10 text-center px-4">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+        {/* Corazón principal con efecto de brillo */}
         <motion.div
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ 
             type: 'spring',
-            stiffness: 260,
-            damping: 20,
-            duration: 1.5 
+            stiffness: 200,
+            damping: 15,
+            duration: 1.8
           }}
+          className="mb-8"
         >
           <motion.div
-            className="text-9xl mb-8 cursor-pointer inline-block drop-shadow-2xl"
-            whileHover={{ scale: 1.2, rotate: 360 }}
-            whileTap={{ scale: 0.9 }}
+            className="text-9xl md:text-[12rem] cursor-pointer inline-block relative"
+            style={{
+              filter: 'drop-shadow(0 0 30px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.3))'
+            }}
+            whileHover={{ 
+              scale: 1.15, 
+              rotate: 15,
+              filter: 'drop-shadow(0 0 40px rgba(255, 215, 0, 0.9)) drop-shadow(0 0 80px rgba(255, 255, 255, 0.5))'
+            }}
+            whileTap={{ scale: 0.85 }}
             onClick={handleClick}
             animate={clicked ? {
-              scale: [1, 1.5, 1],
-              rotate: [0, 360, 720],
-            } : {}}
-            transition={{ duration: 1 }}
+              scale: [1, 1.8, 0.5, 1.3, 1],
+              rotate: [0, 180, 360, 540, 720],
+              filter: [
+                'drop-shadow(0 0 30px rgba(255, 215, 0, 0.6))',
+                'drop-shadow(0 0 80px rgba(255, 215, 0, 1))',
+                'drop-shadow(0 0 100px rgba(255, 255, 255, 0.8))',
+                'drop-shadow(0 0 80px rgba(255, 215, 0, 1))',
+                'drop-shadow(0 0 30px rgba(255, 215, 0, 0.6))'
+              ]
+            } : {
+              scale: [1, 1.05, 1],
+              rotate: [0, -5, 5, 0]
+            }}
+            transition={clicked ? { duration: 2 } : { 
+              duration: 2,
+              repeat: Infinity,
+              repeatType: 'reverse'
+            }}
           >
-            ❤️
+            <span className="relative z-10">❤️</span>
+            
+            {/* Anillos de brillo */}
+            {!clicked && (
+              <>
+                <motion.div
+                  className="absolute inset-0 rounded-full border-4 border-yellow-300/30"
+                  animate={{
+                    scale: [1, 1.3, 1],
+                    opacity: [0.5, 0, 0.5]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: 'easeInOut'
+                  }}
+                />
+                <motion.div
+                  className="absolute inset-0 rounded-full border-4 border-white/20"
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.3, 0, 0.3]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 0.5
+                  }}
+                />
+              </>
+            )}
           </motion.div>
         </motion.div>
 
+        {/* Título principal con gradiente dorado */}
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="text-7xl md:text-9xl font-bold text-white mb-6 drop-shadow-[0_5px_15px_rgba(255,255,255,0.5)]"
+          transition={{ delay: 0.6, duration: 1.2 }}
+          className="text-7xl md:text-9xl font-bold mb-8 text-gradient-gold"
+          style={{
+            fontFamily: 'Georgia, serif',
+            letterSpacing: '0.05em'
+          }}
         >
           Para Ti
         </motion.h1>
 
+        {/* Subtexto con animación de escritura */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="text-3xl md:text-5xl text-white font-bold mb-12 h-24 drop-shadow-[0_3px_10px_rgba(255,255,255,0.7)]"
+          transition={{ delay: 1.2, duration: 1 }}
+          className="text-4xl md:text-6xl font-bold mb-12 h-32 md:h-40"
+          style={{
+            fontFamily: 'Georgia, serif'
+          }}
         >
           <TypeAnimation
             sequence={[
-              'Mi amor... 💕',
-              2000,
-              'Mi vida... 🌟',
-              2000,
-              'Mi todo... 💖',
-              2000,
-              'Mi razón de ser... ✨',
-              2000,
+              'Mi amor eterno... 💕',
+              2500,
+              'Mi razón de existir... 🌟',
+              2500,
+              'Mi universo completo... 💖',
+              2500,
+              'Mi todo y más... ✨',
+              2500,
+              'La luz de mi vida... 💫',
+              2500,
             ]}
             wrapper="span"
-            speed={50}
+            speed={40}
             repeat={Infinity}
+            className="text-gradient-white block"
           />
         </motion.div>
 
+        {/* Instrucción o mensaje final */}
         {!clicked && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 1 }}
-            className="text-2xl text-white font-bold animate-pulse drop-shadow-lg bg-pink-600/30 backdrop-blur-sm px-8 py-4 rounded-full inline-block"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 2.5, duration: 1 }}
+            className="relative inline-block"
           >
-            💖 Haz click en el corazón 💖
-          </motion.p>
+            <motion.p
+              animate={{ 
+                scale: [1, 1.05, 1],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: 'reverse'
+              }}
+              className="text-2xl md:text-3xl text-white font-semibold px-10 py-5 rounded-full inline-block card-glass-black glow-gold relative overflow-hidden"
+              style={{
+                fontFamily: 'Georgia, serif'
+              }}
+            >
+              <motion.span
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                animate={{
+                  x: ['-200%', '200%']
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: 'linear'
+                }}
+              />
+              <span className="relative z-10">💖 Haz click en el corazón 💖</span>
+            </motion.p>
+          </motion.div>
         )}
 
         {clicked && (
           <motion.div
-            initial={{ opacity: 0, scale: 0 }}
+            initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-3xl text-white font-bold bg-purple-600/40 backdrop-blur-md px-8 py-4 rounded-2xl inline-block"
+            transition={{ delay: 0.3, type: 'spring', stiffness: 200 }}
+            className="relative inline-block"
           >
-            Preparando algo especial para ti... ✨
+            <div className="text-3xl md:text-4xl text-white font-bold px-12 py-6 rounded-2xl inline-block card-glass-black glow-gold">
+              <motion.span
+                animate={{
+                  opacity: [1, 0.6, 1]
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity
+                }}
+                style={{
+                  fontFamily: 'Georgia, serif'
+                }}
+              >
+                Preparando algo especial para ti... ✨
+              </motion.span>
+            </div>
           </motion.div>
         )}
       </div>
+
+      {/* Línea decorativa inferior */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ delay: 2, duration: 1.5 }}
+        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-64 h-0.5 bg-gradient-to-r from-transparent via-yellow-300 to-transparent"
+      />
     </section>
   );
 }
