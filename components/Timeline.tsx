@@ -235,8 +235,8 @@ export default function Timeline() {
 
             {/* Contenido scrolleable */}
             <div className="p-8 space-y-6 max-h-[calc(90vh-220px)] overflow-y-auto bg-black/50">
-              {/* Imagen en modal REDUCIDA: 180px */}
-              <div className="relative h-45 rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-rose-900/30 to-pink-900/30">
+              {/* Imagen en modal REDUCIDA: h-40 = 160px */}
+              <div className="relative h-40 rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-rose-900/30 to-pink-900/30">
                 {!imageErrors[selected.id] ? (
                   <img
                     src={selected.image}
