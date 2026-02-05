@@ -118,9 +118,7 @@ export default function Timeline() {
                     />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center text-yellow-300/60">
-                      <svg className="w-20 h-20 mb-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                      </svg>
+                      <span className="text-6xl mb-3">📷</span>
                       <p className="text-sm font-semibold">Imagen no disponible</p>
                     </div>
                   )}
@@ -138,20 +136,15 @@ export default function Timeline() {
                     {memory.title}
                   </h3>
                   
-                  {/* Fecha con ícono más pequeño */}
-                  <div className="flex items-center gap-2">
-                    <svg className="w-4 h-4 flex-shrink-0 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                    </svg>
-                    <span 
-                      className="text-sm text-white font-bold"
-                      style={{
-                        textShadow: '1px 1px 3px rgba(0,0,0,1)'
-                      }}
-                    >
-                      {memory.date}
-                    </span>
-                  </div>
+                  {/* Fecha SIN ícono SVG - solo emoji y texto */}
+                  <p 
+                    className="text-white font-bold text-sm"
+                    style={{
+                      textShadow: '1px 1px 3px rgba(0,0,0,1)'
+                    }}
+                  >
+                    📅 {memory.date}
+                  </p>
 
                   <p 
                     className="text-white text-base leading-relaxed line-clamp-3 font-semibold"
@@ -162,24 +155,12 @@ export default function Timeline() {
                     {memory.description}
                   </p>
 
-                  {/* Botón con flecha MINI */}
+                  {/* Botón SIN flecha - solo texto */}
                   <button
                     onClick={() => setSelected(memory)}
                     className="w-full mt-4 bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-600 hover:to-amber-600 text-white py-3 px-6 rounded-xl font-bold text-base transition-all duration-300 shadow-lg group-hover:scale-105"
                   >
-                    <div className="flex items-center justify-center gap-2">
-                      <span>Leer Historia</span>
-                      {/* Flecha MUCHO más pequeña: w-4 h-4 */}
-                      <svg 
-                        className="w-4 h-4 flex-shrink-0" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                        style={{ width: '16px', height: '16px', minWidth: '16px', minHeight: '16px' }}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
+                    Leer Historia
                   </button>
                 </div>
               </div>
@@ -228,11 +209,9 @@ export default function Timeline() {
             <div className="relative bg-gradient-to-r from-yellow-500 to-amber-500 p-8 text-white">
               <button
                 onClick={() => setSelected(null)}
-                className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all hover:rotate-90"
+                className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white text-2xl transition-all hover:rotate-90"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                ✕
               </button>
 
               <div className="flex items-center gap-4">
@@ -242,7 +221,7 @@ export default function Timeline() {
                 <div>
                   <p className="text-white/90 text-base mb-1 font-semibold">Capítulo {selected.id}</p>
                   <h2 className="text-3xl md:text-4xl font-bold">{selected.title}</h2>
-                  <p className="text-white text-lg mt-1">{selected.date}</p>
+                  <p className="text-white text-lg mt-1">📅 {selected.date}</p>
                 </div>
               </div>
             </div>
@@ -261,9 +240,7 @@ export default function Timeline() {
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center text-yellow-300/60">
-                    <svg className="w-20 h-20 mb-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                    </svg>
+                    <span className="text-6xl mb-3">📷</span>
                     <p className="text-sm font-medium">Imagen no disponible</p>
                   </div>
                 )}
@@ -298,10 +275,8 @@ export default function Timeline() {
 
               {/* Poema */}
               <div className="bg-gradient-to-br from-yellow-900/30 to-amber-900/30 rounded-xl p-8 border-2 border-yellow-300/40">
-                <div className="flex items-start gap-2 mb-3">
-                  <svg className="w-6 h-6 text-yellow-300 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-                  </svg>
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <span className="text-yellow-300 text-3xl">💖</span>
                   <h4 
                     className="font-bold text-white text-lg"
                     style={{
