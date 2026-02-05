@@ -1,15 +1,38 @@
 'use client';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { useState } from 'react';
-import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 interface HeroProps {
   onEnter: () => void;
 }
 
+interface Particle {
+  id: number;
+  left: number;
+  top: number;
+  delay: number;
+  duration: number;
+}
+
 export default function Hero({ onEnter }: HeroProps) {
   const [clicked, setClicked] = useState(false);
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  // Generar partículas solo en el cliente
+  useEffect(() => {
+    const newParticles: Particle[] = [];
+    for (let i = 0; i < 30; i++) {
+      newParticles.push({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 2,
+        duration: 3 + Math.random() * 2
+      });
+    }
+    setParticles(newParticles);
+  }, []);
 
   const handleClick = () => {
     if (!clicked) {
@@ -63,13 +86,13 @@ export default function Hero({ onEnter }: HeroProps) {
 
       {/* Partículas doradas flotantes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {particles.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             className="absolute w-1 h-1 bg-yellow-300 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
               boxShadow: '0 0 10px rgba(255, 215, 0, 0.8)'
             }}
             animate={{
@@ -78,9 +101,9 @@ export default function Hero({ onEnter }: HeroProps) {
               scale: [1, 1.5, 1]
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: Math.random() * 2
+              delay: particle.delay
             }}
           />
         ))}
