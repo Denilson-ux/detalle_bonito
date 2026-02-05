@@ -8,6 +8,19 @@
   box-sizing: border-box;
 }
 
+/* ESTILOS DE SELECCIÓN DE TEXTO - TEXTO BLANCO SOBRE FONDO DORADO */
+::selection {
+  background-color: rgba(255, 215, 0, 0.9);
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+::-moz-selection {
+  background-color: rgba(255, 215, 0, 0.9);
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
 body {
   overflow-x: hidden;
   background: #000000;
